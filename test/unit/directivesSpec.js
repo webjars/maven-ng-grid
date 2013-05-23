@@ -184,7 +184,7 @@ describe('directives', function () {
                         });
                     });
 
-                    it('should allow editing of complex properties', function() {
+                    iit('should allow editing of complex properties', function() {
                         // Update the grid data to use complex properties
                         elm = angular.element(
                             '<div ng-grid="gridOptions" style="width: 1000px; height: 1000px"></div>'
@@ -219,26 +219,34 @@ describe('directives', function () {
                         // Get the first editable cell
                         var cell = element.find('.ngRow:eq(0) .ngCell.col0 [ng-dblclick]');
 
+                        var input;
+                        var testName = 'Test Name';
+
                         runs(function() {
                             // Double-click on the first editable cell
                             browserTrigger(cell, 'dblclick');
                         });
                         waits(200);
                         runs(function() {
-                            var input = cell.find('input');
+                            input = cell.find('input');
 
                             expect(input.val()).toEqual('Bob');
 
                             // Change the value to 'Test'
-                            var testName = 'Test Name';
                             input.val(testName);
 
-                            expect(function(){
-                                // Trigger the input handler
-                                input.triggerHandler('keyup');
-                            }).not.toThrow();
+                            $scope.$apply(function(){
+                                browserTrigger(input, 'change');
+                            });
 
-                            // The value of the input should stay 'Test'
+                            // expect(function(){
+                            //     // Trigger the input handler
+                            //     input.triggerHandler('keyup');
+                            // }).not.toThrow();
+                        });
+                        waits(500);
+                        runs(function(){
+                            // The value of the input should stay equal to testName
                             expect(input.val()).toEqual(testName);
 
                             // The change should be reflected in the data array
