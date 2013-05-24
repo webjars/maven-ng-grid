@@ -125,7 +125,7 @@ describe('directives', function () {
                 }));
             });
             
-            ddescribe('column', function () {
+            describe('column', function () {
                 describe('cell editing', function () {
                     var elm, element, $scope, $compile, $sniffer
 

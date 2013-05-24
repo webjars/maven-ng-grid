@@ -1,6 +1,5 @@
 ﻿ngGridDirectives.directive('ngInput', [function() {
     return {
-        // scope: true,
         require: 'ngModel',
         link: function (scope, elm, attrs, ngModel) {
             // Store the initial cell value so we can reset to it if need be
