@@ -125,13 +125,14 @@ describe('directives', function () {
                 }));
             });
             
-            describe('column', function () {
+            ddescribe('column', function () {
                 describe('cell editing', function () {
-                    var elm, element, $scope, $compile;
+                    var elm, element, $scope, $compile, $sniffer
 
-                    beforeEach(inject(function ($rootScope, _$compile_) {
+                    beforeEach(inject(function ($rootScope, _$compile_, _$sniffer_) {
                         $compile = _$compile_;
                         $scope = $rootScope;
+                        $sniffer = _$sniffer_;
                         elm = angular.element(
                             '<div ng-grid="gridOptions" style="width: 1000px; height: 1000px"></div>'
                         );
@@ -184,7 +185,7 @@ describe('directives', function () {
                         });
                     });
 
-                    iit('should allow editing of complex properties', function() {
+                    it('should allow editing of complex properties', function() {
                         // Update the grid data to use complex properties
                         elm = angular.element(
                             '<div ng-grid="gridOptions" style="width: 1000px; height: 1000px"></div>'
@@ -235,9 +236,7 @@ describe('directives', function () {
                             // Change the value to 'Test'
                             input.val(testName);
 
-                            $scope.$apply(function(){
-                                browserTrigger(input, 'change');
-                            });
+                            browserTrigger(input, $sniffer.hasEvent('input') ? 'input' : 'change');
 
                             // expect(function(){
                             //     // Trigger the input handler
