@@ -46,7 +46,7 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>2.0.6</upstream.version>
+        <upstream.version>2.0.7</upstream.version>
         <upstream.url>scm:git:https://github.com/webjars/ng-grid.git</upstream.url>
 	<ng-grid.sourceUrl>https://github.com/angular-ui/ng-grid/archive</ng-grid.sourceUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
@@ -86,8 +86,8 @@
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
                                 <echo message="moving resources" />
                                 <property name="unzip.dir" value="${project.build.directory}/${project.artifactId}-${upstream.version}" />
-                                <move file="${unzip.dir}/ng-grid-2.0.6.debug.js" tofile="${destDir}/ng-grid.js" />
-                                <move file="${unzip.dir}/ng-grid-2.0.6.min.js" tofile="${destDir}/ng-grid.min.js" />
+                                <move file="${unzip.dir}/ng-grid-${upstream.version}.debug.js" tofile="${destDir}/ng-grid.js" />
+                                <move file="${unzip.dir}/ng-grid-${upstream.version}.min.js" tofile="${destDir}/ng-grid.min.js" />
                                 <move todir="${destDir}">                                    
                                     <filelist dir="${unzip.dir}">
                                         <file name="ng-grid.css" />
