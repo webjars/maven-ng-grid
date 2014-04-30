@@ -46,7 +46,7 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>2.0.10</upstream.version>
+        <upstream.version>2.0.11</upstream.version>
         <upstream.url>scm:git:https://github.com/webjars/ng-grid.git</upstream.url>
 	<ng-grid.sourceUrl>https://github.com/angular-ui/ng-grid/archive</ng-grid.sourceUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
