@@ -94,6 +94,16 @@
                                         <file name="ng-grid.min.css" />
                                     </filelist>
                                 </move>
+                                <move todir="${destDir}/plugins">
+                                    <filelist dir="${unzip.dir}">
+                                        <file name="plugins/ng-grid-csv-export.js" />
+                                        <file name="plugins/ng-grid-flexible-height.js" />
+                                        <file name="plugins/ng-grid-layout.js" />
+                                        <file name="plugins/ng-grid-pdf-export.js" />
+                                        <file name="plugins/ng-grid-reorderable.js" />
+                                        <file name="plugins/ng-grid-wysiwyg-export.js" />
+                                    </filelist>
+                                </move>
                             </target>
                         </configuration>
                     </execution>
