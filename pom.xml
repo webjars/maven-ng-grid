@@ -50,7 +50,16 @@
         <upstream.url>scm:git:https://github.com/webjars/ng-grid.git</upstream.url>
 	<ng-grid.sourceUrl>https://github.com/angular-ui/ng-grid/archive</ng-grid.sourceUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
-        <requirejs />
+        <requirejs>
+            {
+                "paths": {
+                    "ng-grid": "ng-grid"
+                },
+                "shim": {
+                    "ng-grid": [ "jquery", "angular" ]
+                }
+            }
+        </requirejs>
     </properties>
 
     <build>
